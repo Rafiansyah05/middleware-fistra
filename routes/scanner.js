@@ -34,9 +34,9 @@ router.post('/scan', async (req, res) => {
 
     res.json({
       status: 'success',
-      nama_lengkap: user.nama_lengkap,
+      nama_lengkap: user.nama_lengkap, // WAJIB ADA
       message: 'Transaksi berhasil',
-      saldo_sekarang: newSaldo,
+      saldo_sekarang: newSaldo, // WAJIB ADA
     });
   } catch (err) {
     console.error('Terjadi error:', err);

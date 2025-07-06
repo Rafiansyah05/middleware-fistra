@@ -33,6 +33,8 @@ router.post('/scan', async (req, res) => {
     await pool.query('INSERT INTO transaction_history (user_id, tipe_transaksi, jumlah, deskripsi) VALUES (?, ?, ?, ?)', [user.user_id, 'Pembayaran', nominal, 'Transaksi via scanner']);
 
     res.json({
+      status: 'success',
+      nama_lengkap: user.nama_lengkap,
       message: 'Transaksi berhasil',
       saldo_sekarang: newSaldo,
     });

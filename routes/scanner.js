@@ -12,7 +12,7 @@ router.post('/scan', async (req, res) => {
 
   try {
     // Cari user berdasarkan fingerprint
-    const [userRows] = await pool.query('SELECT user_id, saldo FROM users WHERE sidik_jari = ?', [fingerprint_id]);
+    const [userRows] = await pool.query('SELECT user_id, saldo, nama_lengkap FROM users WHERE sidik_jari = ?', [fingerprint_id]);
 
     if (userRows.length === 0) {
       return res.status(404).json({ error: 'Sidik jari tidak ditemukan' });
